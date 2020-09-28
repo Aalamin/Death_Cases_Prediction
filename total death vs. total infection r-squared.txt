@@ -1,0 +1,11 @@
+                               total death vs. total infection r-squared
+
+>di<- read.csv("~/Desktop/vdi/di.csv") 	//Import CSV file
+> View(di)  				//View CSV Data
+>rdate<- as.Date(di$Date, "%d-%m-%y") 
+> fix(rdate)  				//Fixed Date Format
+>lines(lowess(di$y ~ di$x), col= "red") 	//Create R-squared line
+> r = lm(di$y ~ di$x) 			//Import all data into r
+> summary(r)$r.squared 			//Show R-square value
+
+>plot(di$Total.Death ~ di$Total.Cases), xlab = "Number of Infection", ylab = "Number of Death",main = "R-squared= 0.883", type = "l", col="green", col.main= "red", cex.axis = 0.6, lty = 5, pch =4, yaxp= c(10,150,14) ,xaxp= c(100,4000,13) )     		//Show R-squre graph

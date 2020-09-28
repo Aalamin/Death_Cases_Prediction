@@ -1,0 +1,12 @@
+                            total death vs. total days clustering
+
+
+>dd<- read.csv("~/Desktop/vdd/dd.csv") 	//Import CSV file
+> View(dd)  				//View CSV Data
+>rdate<- as.Date(dd$Date, "%d-%m-%y") 
+> fix(rdate)  				//Fixed Date Format
+>lines(lowess(dd$y ~ dd$x), col= "red") 	//Create R-squared line
+> r = lm(dd$y ~ dd$x) 			//Import all data into r
+> summary(r)$r.squared 			//Show R-square value
+
+>plot(dd$Total.Death ~ mn$Day), xlab = "Number of Days", ylab = "Number ofDeath",main = "R-squared= 0.808", type = "l", col="green", col.main= "red", cex.axis = 0.6, lty = 5, pch =4,xaxp=c(10,140,13),yaxp=c(10,60,5) ) 						//Show R-squre graph

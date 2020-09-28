@@ -1,0 +1,18 @@
+                                   Total Infection clustering
+
+
+>in<- read.csv("~/Desktop/vin/in.csv") 	//Import CSV file
+> View(in)  					//View CSV Data
+>rdate<- as.Date(in$Date, "%d-%m-%y") 
+> fix(rdate)  					//Fixed Date Format
+> results <- kmeans(in[,1],centers = 5) 		//Create Cluster
+>results  					//Check Cluster
+>results$centers					//Check centers
+>results$cluster 					//Check Cluster
+>plot(in[results$cluster ==1, ],xlin="Number of Days",ylin="Number of Death",col = "green", yaxp= c(10,150,14) ,xaxp= c(100,4000,13), main = "Total Infection",xlim=c( min(in[,1] ),max(in[,1] ) ), ylim=c(min(in[,2] ), max(in[,2] ) ) )   		//Create plot bage on cluster 1
+
+>points(mn[results$cluster == 2, ], col = "red" )    	//Create plot based on cluster 2
+>points(mn[results$cluster == 3,] , col = "blue")  	//Create plot based on cluster 3
+>points(mn[results$cluster == 4,] , col = "black")   	//Create plot based on cluster 4
+>points(mn[results$cluster == 5,] , col = "seagreen")  //Create plot based on cluster 5 
+

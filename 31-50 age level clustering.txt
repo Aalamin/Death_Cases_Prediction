@@ -1,0 +1,17 @@
+                                      31-50 age level clustering
+
+
+>age2<- read.csv("~/Desktop/vage2/age2.csv") 	//Import CSV file
+> View(age)  // view CSV Data
+>rdate<- as.Date(age2$Date, "%d-%m-%y") 
+> fix(rdate)  // Fixed Date Format
+> results <- kmeans(age2[,1],centers = 5)		//Implement K-means algorithm
+>results  // Check Cluster .
+>results$centers // Check centers
+>results$cluster  // Check Cluster
+>plot(age2[results$cluster ==1, ],xlage2="Number of Days",ylage2="Number of Death",col = "green",xaxp=c(10,140,13),yaxp=c(1,20,6), main = "Age: 31-50",xlim=c( min(age2[,1] ),max(age2[,1] ) ), ylim=c(min(age2[,2] ), max(age2[,2] ) ) )   //Create plot bage on cluster 1
+
+>points(mn[results$cluster == 2, ], col = "red" )    	//Create plot based on cluster 2
+>points(mn[results$cluster == 3,] , col = "blue")   	//Create plot based on cluster 3
+>points(mn[results$cluster == 4,] , col = "black")   	//Create plot based on cluster 4
+>points(mn[results$cluster == 5,] , col = "seagreen") 	//Create plot based on cluster 5 
